@@ -5,6 +5,8 @@ import {Test, console2} from "forge-std/Test.sol";
 import {StdInvariant} from "forge-std/StdInvariant.sol";
 import {SimpleFuzz} from "../src/SimpleFuzz.sol";
 
+import {console} from "forge-std/console.sol";
+
 contract SimpleFuzzTest is StdInvariant, Test {
     SimpleFuzz public simpleFuzz;
 
@@ -25,6 +27,7 @@ contract SimpleFuzzTest is StdInvariant, Test {
 
     //This is to make invariant aka statefull fuzzing:
     function invariant_testAlwaysReturnsZero () public {
+        console.log("Testing");
         assertEq(simpleFuzz.shouldAlwaysBeZero(), 0);
     }
 }
