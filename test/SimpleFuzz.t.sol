@@ -31,3 +31,15 @@ contract SimpleFuzzTest is StdInvariant, Test {
         assertEq(simpleFuzz.shouldAlwaysBeZero(), 0);
     }
 }
+
+contract EchidnaTest is SimpleFuzz {
+
+    function echidna_fuzzing () public pure returns (bool) {
+        return true;
+    }
+
+    function echidna_invariant () public view returns (bool) {
+        return (shouldAlwaysBeZero == 0);
+    }
+
+}
